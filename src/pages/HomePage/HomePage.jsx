@@ -6,7 +6,7 @@ const HomePage = () => {
     <div>
       <h1>Find your perfect rental car</h1>
       <p>Reliable and budget-friendly rentals for any journey</p>
-      <NavLink>View Catalog</NavLink>
+      <NavLink to="/catalog">View Catalog</NavLink>
     </div>
   );
 };
