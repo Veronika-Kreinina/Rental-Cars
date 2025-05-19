@@ -1,32 +1,69 @@
-// import { useParams } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+import { selectCar } from "../../redux/selectors";
 
-export default function CarDetailPage() {
-  //   const dispatch = useDispatch();
-  //   const { carId } = useParams();
-  //   const car = useSelector((state) =>
-  //     state.cars.list.find((c) => c.id === carId)
-  //   );
-
-  //   if (!car) return <div>Завантаження...</div>;
-  // }
-  // const handleChange = (e) => {
-  //   setFilters({ ...filters, [e.target.name]: e.target.value });
-  //   const [filters, setFilters] = useState(selectFilters);
-
-  //   useEffect(() => {
-  //     dispatch(fetchCars(filters));
-  //   }, [dispatch, filters]);
-
+const CarDetailPage = () => {
+  const cars = useSelector(selectCar);
   return (
-    <div>
+    <>
       <div>
-        <img />
-        <label></label>
-        <p></p>
-        <button>Read more</button>
+        <div>
+          <p>
+            {cars.brand} {cars.model}, {cars.year}
+          </p>
+
+          <p>Id: {cars.id}</p>
+        </div>
+
+        <div>
+          <div>
+            <use href={`${cars.icons}`}></use>
+
+            <p>{cars.address}</p>
+          </div>
+          <div>
+            <p>Mileage: {cars.mileage} km</p>
+          </div>
+        </div>
+
+        <p>${cars.rentalPrice}</p>
+        <p>{cars.description}</p>
       </div>
-    </div>
+
+      <div>
+        <div>
+          <h3>Rental Conditions: </h3>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Car Specifications:</h3>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Accessories and functionalities:</h3>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </>
   );
-}
+};
+
+export default CarDetailPage;
